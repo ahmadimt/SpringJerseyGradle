@@ -12,6 +12,8 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
+
 /**
  * @author imti
  *
@@ -37,7 +39,13 @@ public class WebMvcInitializer implements WebApplicationInitializer {
 				"dispatcher", new DispatcherServlet(dispatcherServlet));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
+		ServletRegistration.Dynamic jerseyServlet = servletContext.addServlet(
+				"jerseyServlet", new SpringServlet());
+		jerseyServlet.setInitParameter(
+				"com.sun.jersey.api.json.POJOMappingFeature", "true");
+		jerseyServlet.setInitParameter("com.sun.jersey.config.property.packages", "com.imt.spring.jersey.gradle");
+		jerseyServlet.setLoadOnStartup(1);
+		jerseyServlet.addMapping("/api/*");
 
 	}
-
 }
