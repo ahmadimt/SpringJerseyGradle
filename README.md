@@ -1,2 +1,2 @@
 # SpringJerseyGradle
-This is a Multi Projects Build
+This is a Gradle Multi Projects Build
