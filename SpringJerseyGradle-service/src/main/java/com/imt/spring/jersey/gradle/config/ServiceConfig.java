@@ -3,6 +3,7 @@
  */
 package com.imt.spring.jersey.gradle.config;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
-public class WsConfig {
+@ComponentScan(basePackages={"com.imt.spring.jersey.gradle"})
+public class ServiceConfig {
 
 }

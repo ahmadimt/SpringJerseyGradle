@@ -6,6 +6,8 @@ package com.imt.spring.jersey.gradle.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.imt.spring.jersey.gradle" })
+@PropertySource("classpath:application.properties")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -53,4 +56,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	}
 
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer configurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
 }

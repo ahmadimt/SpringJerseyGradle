@@ -4,6 +4,14 @@ apply plugin: "eclipse-wtp"
 dependencies {
 	   compile project(':SpringJerseyGradle-service')
 	   compile('org.springframework:spring-webmvc:4.1.6.RELEASE')
-       compile ('com.sun.jersey:jersey-core:1.9')
+       compile ('com.sun.jersey:jersey-client:1.19')
+       compile ('com.sun.jersey:jersey-server:1.19')
+       compile ('com.sun.jersey:jersey-json:1.19')
+        compile ('com.sun.jersey.contribs:jersey-spring:1.19'){
+        exclude group: ('org.springframework')
+        }
+        compile ('com.sun.jersey.contribs:jersey-multipart:1.19'){
+        
+        }
        compile('javax.servlet:javax.servlet-api:3.1.0')
 }
