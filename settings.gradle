@@ -1,1 +1,1 @@
-include ":SpringJerseyGradle-service", ":SpringJerseyGradle-web", ":SpringJerseyGradle-ws", ":SpringJerseyGradle-persistence"
+include ":SpringJerseyGradle-service", ":SpringJerseyGradle-web", ":SpringJerseyGradle-ws", ":SpringJerseyGradle-persistence",":SpringJerseyGradle-security"
